@@ -12,3 +12,4 @@ streamlit
 aiohttp
 requests
 dask
+dask_expr

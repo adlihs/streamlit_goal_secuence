@@ -1,5 +1,5 @@
 import pandas as pd
-#import streamlit as st
+import streamlit as st
 import unicodedata
 import dask.dataframe as dd
 import aiohttp
@@ -12,7 +12,7 @@ def eliminar_tildes(texto):
     return texto_limpio
 
 
-#@st.cache_data
+@st.cache_data
 def load_data(app):
     if app == 1:  # goal_secuence, pass_flow, player_heatmap, player_pass_map
 

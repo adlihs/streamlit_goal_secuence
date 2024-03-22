@@ -1,6 +1,9 @@
 import pandas as pd
-import streamlit as st
+#import streamlit as st
 import unicodedata
+import dask.dataframe as dd
+import aiohttp
+import joblib  # For caching
 
 
 def eliminar_tildes(texto):
@@ -9,10 +12,12 @@ def eliminar_tildes(texto):
     return texto_limpio
 
 
-@st.cache_data
+#@st.cache_data
 def load_data(app):
     if app == 1:  # goal_secuence, pass_flow, player_heatmap, player_pass_map
-        event_data = pd.concat(map(pd.read_parquet, [
+
+        # Define file URLs (assuming these are the same)
+        urls = [
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ENG_match_events.parquet',
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/GER_match_events.parquet',
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ITA_match_events.parquet',
@@ -20,7 +25,11 @@ def load_data(app):
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/SCO_match_events.parquet',
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/NED_match_events.parquet',
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/POR_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/FRA_match_events.parquet']))
+            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/FRA_match_events.parquet'
+        ]
+
+        ddf = dd.read_parquet(urls, parallel=True)
+        event_data = ddf.compute()
 
         event_data[['date', 'game']] = event_data['game'].str.split(" ", n=1, expand=True)
         event_data['season'] = '23-24'
@@ -65,3 +74,5 @@ def load_data(app):
         shot_data['player'] = shot_data['player'].apply(eliminar_tildes)
 
         return shot_data
+
+print(load_data(app=1))

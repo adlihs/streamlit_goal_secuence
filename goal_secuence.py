@@ -9,7 +9,7 @@ import streamlit as st
 
 from utils.functions_file import load_data
 
-
+print('Func goals_previous_actions ')
 def goals_previous_actions(actions_data, team):
     pass_df = actions_data[(actions_data['league'] == leagues) &
                            (actions_data['team'] == team) &
@@ -35,7 +35,7 @@ def goals_previous_actions(actions_data, team):
     # st.dataframe(actions_df)
     return actions_df
 
-
+print('Func viz_previous_events ')
 def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
     #gem_api = 'AIzaSyAKKRcbonvFpJL5q6Il_50cHEWtoe60cxk'
     #genai.configure(api_key=gem_api)
@@ -368,11 +368,11 @@ def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
     #st.markdown('***AI GOAL COMMENTATOR***')
     #st.markdown(response2.text)
 
-
+print('loading data'))
 data = load_data(app=1)
-st.dataframe(data)
+#st.dataframe(data)
 base_data = data.copy()
-
+print('Side Bar')
 with st.sidebar:
     st.title('Pass Flow Generator :soccer:')
     st.subheader('Big 5 Leagues')

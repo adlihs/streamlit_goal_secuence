@@ -368,7 +368,7 @@ def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
     #st.markdown('***AI GOAL COMMENTATOR***')
     #st.markdown(response2.text)
 
-print('loading data'))
+print('loading data')
 data = load_data(app=1)
 #st.dataframe(data)
 base_data = data.copy()

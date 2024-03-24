@@ -18,13 +18,13 @@ def load_data(app):
 
         # Define file URLs (assuming these are the same)
         urls = [
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ENG_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/GER_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ITA_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ESP_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/SCO_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/NED_match_events.parquet',
-            'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/POR_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ENG_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/GER_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ITA_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/ESP_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/SCO_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/NED_match_events.parquet',
+            #'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/POR_match_events.parquet',
             'https://raw.githubusercontent.com/adlihs/streamlit_shot_map/master/data/FRA_match_events.parquet'
         ]
 

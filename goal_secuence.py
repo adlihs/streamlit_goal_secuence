@@ -37,9 +37,9 @@ def goals_previous_actions(actions_data, team):
 
 
 def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
-    gem_api = 'AIzaSyAKKRcbonvFpJL5q6Il_50cHEWtoe60cxk'
-    genai.configure(api_key=gem_api)
-    model = genai.GenerativeModel('gemini-pro')
+    #gem_api = 'AIzaSyAKKRcbonvFpJL5q6Il_50cHEWtoe60cxk'
+    #genai.configure(api_key=gem_api)
+    #model = genai.GenerativeModel('gemini-pro')
 
     # soccer_data = soccer_data.sort_values(by=["date", "game", "minute", "second"])
 
@@ -347,13 +347,13 @@ def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
     narrative_df = narrative_df.reset_index()
 
     text = narrative_df.to_string(index=False, header=True)
-    print(text)
+    #print(text)
 
     order_txt = "I'm going to give you a Index, team, player name, minute, second and action for a soccer game goal, to help you understand the position of the action the pitch widht is 100 and the height is 100, so analize the position of the action, do not include coordinates, and please re-create briefly the play using the data, use only the information provided, put between () the Index, include all the actions for the teams in order based on the Index, and i want a bulleted list:" + text
-    response = model.generate_content(order_txt)
+    #response = model.generate_content(order_txt)
 
     order_txt2 = "The next data is for a secuence of action before a goal is scored, please analyze it and write a brief and simple description of the play as a soccer commentator, use only the information provided in the order provided:  " + text
-    response2 = model.generate_content(order_txt2)
+    #response2 = model.generate_content(order_txt2)
     # print(response.text)
 
     # ax.text(x=0.1, y=0.5,
@@ -363,10 +363,10 @@ def viz_previous_events(soccer_data=None, game=None, team=None, minute=None):
     #        color=pitch.line_color)
 
     st.pyplot(plt)
-    st.markdown('***AI GOAL DESCRIPTION***')
-    st.markdown(response.text)
-    st.markdown('***AI GOAL COMMENTATOR***')
-    st.markdown(response2.text)
+    #st.markdown('***AI GOAL DESCRIPTION***')
+    #st.markdown(response.text)
+    #st.markdown('***AI GOAL COMMENTATOR***')
+    #st.markdown(response2.text)
 
 
 data = load_data(app=1)
